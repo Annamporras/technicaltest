@@ -10,12 +10,11 @@ router.get('/getAllPictures', (req, res) => {
         .find()
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
-
 })
 
 // Create new item
 
-router.post('/savePicture', (req, res) => {
+router.post('/create', (req, res) => {
 
     const { title, imageUrl } = req.body
 
