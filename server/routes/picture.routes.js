@@ -16,10 +16,10 @@ router.get('/getAllPictures', (req, res) => {
 
 router.post('/create', (req, res) => {
 
-    const { title, imageUrl } = req.body
+    const { title, image } = req.body
 
     Picture
-        .create({ title, imageUrl })
+        .create({ title, image })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -28,10 +28,10 @@ router.post('/create', (req, res) => {
 
 router.put('/edit/:picture_id', (req, res) => {
     const { picture_id } = req.params
-    const { title, imageUrl } = req.body
+    const { title, image } = req.body
 
     Picture
-        .findByIdAndUpdate(picture_id, { title, imageUrl }, { new: true })
+        .findByIdAndUpdate(picture_id, { title, image }, { new: true })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

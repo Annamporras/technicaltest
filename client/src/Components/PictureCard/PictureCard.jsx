@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import './PictureCard.css'
 
 
-const PictureCard = ({ title, imageUrl, _id }) => {
+const PictureCard = ({ title, image, _id }) => {
 
 
     return (
         <Card className='pictureCard'>
             <Link to={`/detalles/${_id}`}>
-                <Card.Img variant="top" src={imageUrl} />
+                <Card.Img variant="top" src={image} />
             </Link>
             <Card.Body>
                 <Link className='titlePicture' to={`/detalles/${_id}`}>

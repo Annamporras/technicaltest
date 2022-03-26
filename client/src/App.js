@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <Navigation />
-      <NewPictureForm />
       <AppRoutes />
       <Footer />
     </>

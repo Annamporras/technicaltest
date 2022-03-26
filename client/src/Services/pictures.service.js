@@ -28,8 +28,6 @@ class PicturesService {
     deletePicture = picture_id => {
         return this.api.delete(`/delete/${picture_id}`)
     }
-
-
 }
 
 const picturesService = new PicturesService()
