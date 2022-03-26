@@ -4,7 +4,7 @@ class PicturesService {
 
     constructor() {
 
-        this.api = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/mis-imagenes` })
+        this.api = axios.create({ baseURL: `${process.env.REACT_APP_API_URL}/pictures` })
 
     }
 

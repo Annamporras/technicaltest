@@ -8,7 +8,7 @@ const PictureList = ({ pictures }) => {
     return (
         <Row>
             {pictures.map(picture => {
-                return <Col md={3} key={product._id}> <PictureCard {...picture} /> </Col>
+                return <Col md={4} key={picture._id}> <PictureCard {...picture} /> </Col>
             })}
         </Row>
     )
