@@ -30,7 +30,7 @@ const PictureListPage = () => {
     return (
         <>
             <Container>
-                <h1>Listado de imágenes <span onClick={handleModalOpen}>Añadir Foto</span></h1>
+                <h1>Mis imágenes <Button variant='dark' onClick={handleModalOpen}>Añadir Foto</Button></h1>
                 <hr />
                 <PictureList pictures={pictures} />
                 <Link to='/'>
