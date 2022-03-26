@@ -44,7 +44,7 @@ const PictureListPage = () => {
                     <Modal.Title>Crear nueva imagen</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <NewPictureForm closeModal={handleModalClose} />
+                    <NewPictureForm closeModal={handleModalClose} refreshList={loadPictures} />
                 </Modal.Body>
             </Modal>
         </>

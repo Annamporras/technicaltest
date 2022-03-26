@@ -1,11 +1,10 @@
 import { useContext, useState } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
-import { PicturesContext } from '../../Context/pictures.context'
 import picturesService from '../../Services/pictures.service'
 import uploadService from '../../Services/upload.service'
 
 
-const NewPictureForm = ({ closeModal }) => {
+const NewPictureForm = ({ closeModal, refreshList }) => {
 
     const [pictureData, setPictureData] = useState({
         title: '',
@@ -33,8 +32,6 @@ const NewPictureForm = ({ closeModal }) => {
             .catch(err => console.log(err))
     }
 
-    //contextAPI
-    const { loadPictures } = useContext(PicturesContext)
 
     //handleling Form
     const handleInputChange = e => {
@@ -49,11 +46,10 @@ const NewPictureForm = ({ closeModal }) => {
 
     const handleSubmit = e => {
         e.preventDefault()
-
         picturesService
             .createPicture(pictureData)
             .then(({ data }) => {
-                loadPictures()
+                refreshList()
                 closeModal()
             })
             .catch(err => console.log(err))
