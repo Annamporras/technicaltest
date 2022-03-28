@@ -4,6 +4,22 @@
 
 Núvol is an SPA to update you favorites pics! You can add, edit and delete your pictures with a title and some description.
 
+## Setup:
+- Clone this repo.
+- Run '$npm install' to install the node modules.
+- Create an '.env' document in Client and add the information below -> 
+'   - REACT_APP_API_URL=http://localhost:5005/api'
+- Create an '.env' document in Server and add the information below -> 
+'   - PORT=5005
+    - ORIGIN=http://localhost:3000
+    - MONGODB_URI=<yourDBKeys>
+    - CLOUDINARY_NAME=<yourCloudinaryName>
+    - CLOUDINARY_KEY=<yourCloudinaryKey>
+    - CLOUDINARY_SECRET=<yourCloudinarySecret>'
+
+
+
+ 
 
 ## Technologies used:
 SERVER: I've used Express/Node for the server part, from where I created the picture model.
