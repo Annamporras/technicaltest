@@ -3,7 +3,6 @@ const Picture = require('../models/Picture.model')
 
 
 // List of items
-
 router.get('/getAllPictures', (req, res) => {
 
     Picture
@@ -12,32 +11,41 @@ router.get('/getAllPictures', (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-// Create new item
+// Item Details
+router.get('/getOnePicture/:id', (req, res) => {
 
-router.post('/create', (req, res) => {
-
-    const { title, image } = req.body
+    const { id } = req.params
 
     Picture
-        .create({ title, image })
+        .findById(id)
+        .then(response => res.json(response))
+        .catch(err => res.status(500).json(err))
+
+})
+
+// Create new item
+router.post('/create', (req, res) => {
+
+    const { title, image, description } = req.body
+
+    Picture
+        .create({ title, image, description })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
 // Edit item
-
 router.put('/edit/:picture_id', (req, res) => {
     const { picture_id } = req.params
-    const { title, image } = req.body
+    const { title, image, description } = req.body
 
     Picture
-        .findByIdAndUpdate(picture_id, { title, image }, { new: true })
+        .findByIdAndUpdate(picture_id, { title, image, description }, { new: true })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
 // Delete item
-
 router.delete('/delete/:picture_id', (req, res) => {
     const { picture_id } = req.params
 

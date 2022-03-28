@@ -1,17 +1,18 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import picturesService from "../../Services/pictures.service"
-
+import uploadService from "../../Services/upload.service"
+import { Container, Form, Button } from 'react-bootstrap'
 
 const EditPictureForm = () => {
 
     const [pictureDetails, setPictureDetails] = useState({})
-    const { picture_id } = useParams()
-    const { title, image } = pictureDetails
+    const { id } = useParams()
+    const { title, image, description } = pictureDetails
 
     useEffect(() => {
         picturesService
-            .getOnePicture(picture_id)
+            .getOnePicture(id)
             .then(({ data }) => setPictureDetails(data))
             .catch(err => console.log(err))
     }, [])
@@ -51,9 +52,9 @@ const EditPictureForm = () => {
     const handleSubmit = e => {
         e.preventDefault()
         picturesService
-            .editPicture(picture_id, pictureDetails)
+            .editPicture(id, pictureDetails)
             .then(({ data }) => {
-                navigate(`/galeria/${picture_id}`)
+                navigate(`/detalles/${id}`)
             })
             .catch(err => console.log(err))
     }
@@ -61,6 +62,7 @@ const EditPictureForm = () => {
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
+                <h3>Editar foto</h3>
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Título</Form.Label>
                     <Form.Control type="text" placeholder="Introduce un título" value={title} onChange={handleInputChange} name='title' />
@@ -70,12 +72,12 @@ const EditPictureForm = () => {
                     <Form.Label>Seleccionar imagen</Form.Label>
                     <Form.Control type="file" onChange={uploadPicture} />
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="description">
+                <Form.Group className="mb-3" controlId="description">
                     <Form.Label>Descripción</Form.Label>
                     <Form.Control as="textarea" rows={3} aria-label="With textarea" value={description} onChange={handleInputChange} name='description' />
-                </Form.Group> */}
+                </Form.Group>
                 < div className="d-grid gap-2" >
-                    <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Espere por favor...' : 'Subir imagen'}</Button>
+                    <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Espere por favor...' : 'Guardar cambios'}</Button>
                 </div>
             </Form>
         </Container>

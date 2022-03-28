@@ -13,8 +13,8 @@ class PicturesService {
         return this.api.get('/getAllPictures')
     }
 
-    getOnePicture = picture_id => {
-        return this.api.get(`/getOnePicture/${picture_id}`)
+    getOnePicture = id => {
+        return this.api.get(`/getOnePicture/${id}`)
     }
 
     createPicture = picture => {

@@ -3,7 +3,8 @@ const { Schema, model } = require("mongoose");
 const pictureSchema = new Schema(
   {
     image: String,
-    title: String
+    title: String,
+    description: String
   },
   {
     timestamps: true,

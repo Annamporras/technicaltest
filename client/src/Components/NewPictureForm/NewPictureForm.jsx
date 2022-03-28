@@ -9,9 +9,10 @@ const NewPictureForm = ({ closeModal, refreshList }) => {
     const [pictureData, setPictureData] = useState({
         title: '',
         image: '',
+        description: ''
     })
 
-    const { title, image } = pictureData
+    const { title, image, description } = pictureData
 
     // image config
     const [loadingImage, setLoadingImage] = useState(false)
@@ -68,10 +69,10 @@ const NewPictureForm = ({ closeModal, refreshList }) => {
                     <Form.Label>Seleccionar imagen</Form.Label>
                     <Form.Control type="file" onChange={uploadPicture} />
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="description">
+                <Form.Group className="mb-3" controlId="description">
                     <Form.Label>Descripción</Form.Label>
                     <Form.Control as="textarea" rows={3} aria-label="With textarea" value={description} onChange={handleInputChange} name='description' />
-                </Form.Group> */}
+                </Form.Group>
                 < div className="d-grid gap-2" >
                     <Button variant="dark" type="submit" disabled={loadingImage}>{loadingImage ? 'Espere por favor...' : 'Subir imagen'}</Button>
                 </div>
