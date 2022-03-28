@@ -21,7 +21,7 @@ const Navigation = () => {
                         <NavDropdown title="Categorías" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Viajes</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Animales</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Coches</NavDropdown.Item>
+                            <NavDropdown.Item href="#action/3.3">Deportes</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
