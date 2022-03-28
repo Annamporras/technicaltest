@@ -1,9 +1,8 @@
-# technicaltest
+# Núvol
 
 ## Description:
 
 Núvol is an SPA to update you favorites pics! You can add, edit and delete your pictures with a title and some description.
-
 
 
 ## Technologies used:
@@ -23,7 +22,7 @@ The creative part is made with Bootstrap and CSS.
 ## Endpoints
 
 | HTTP Method | URI path            | Description      |
-| :---         |   :---:            |          ---:    |
+| :---         |   :---            |          :---    |
 | GET          | /                  | Render home page   |
 | GET          | /galeria         | List of all pictures  |
 | PUT          | /galeria                 | Modal form to create new picture |
