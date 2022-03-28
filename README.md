@@ -16,6 +16,7 @@ Núvol is an SPA to update you favorites pics! You can add, edit and delete your
     - CLOUDINARY_SECRET=yourCloudinarySecret
 - Create an `.env`document in Client and add the information below -> 
     - REACT_APP_API_URL=http://localhost:5005/api
+    
 
 
 
