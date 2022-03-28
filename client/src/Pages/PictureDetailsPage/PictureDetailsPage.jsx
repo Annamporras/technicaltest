@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import picturesService from '../../Services/pictures.service'
 import { Container, Row, Col, Button } from 'react-bootstrap'
+import { MessageContext } from '../../context/userMessage.context'
 
 
 const PictureDetailsPage = () => {
@@ -9,6 +10,8 @@ const PictureDetailsPage = () => {
     const [pictureDetails, setPictureDetails] = useState({})
     const { id } = useParams()
     const { title, image, description } = pictureDetails
+
+    const { setShowMessage, setMessageInfo } = useContext(MessageContext)
 
     useEffect(() => {
         picturesService
@@ -22,7 +25,11 @@ const PictureDetailsPage = () => {
     const deleteItems = () => {
         picturesService
             .deletePicture(id)
-            .then(() => navigate('/galeria'))
+            .then(() => {
+                setShowMessage(true)
+                setMessageInfo({ title: 'Perfecto!', desc: 'Foto eliminada' })
+                navigate('/galeria')
+            })
             .catch(err => console.log(err))
 
     }
@@ -33,7 +40,7 @@ const PictureDetailsPage = () => {
             <hr />
             <Row style={{ textAlign: 'justify' }}>
                 <Col md={{ span: 4, offset: 1 }}>
-                    <h3>Descripcion</h3>
+                    <h3>Descripción</h3>
                     <p>{description}</p>
                 </Col>
                 <Col md={6}>

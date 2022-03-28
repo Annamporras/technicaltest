@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
+import { MessageContext } from '../../context/userMessage.context'
 import picturesService from '../../Services/pictures.service'
 import uploadService from '../../Services/upload.service'
 
@@ -13,6 +14,7 @@ const NewPictureForm = ({ closeModal, refreshList }) => {
     })
 
     const { title, image, description } = pictureData
+    const { setShowMessage, setMessageInfo } = useContext(MessageContext)
 
     // image config
     const [loadingImage, setLoadingImage] = useState(false)
@@ -50,6 +52,8 @@ const NewPictureForm = ({ closeModal, refreshList }) => {
         picturesService
             .createPicture(pictureData)
             .then(({ data }) => {
+                setShowMessage(true)
+                setMessageInfo({ title: 'Éxito', desc: 'Nueva foto subida' })
                 refreshList()
                 closeModal()
             })

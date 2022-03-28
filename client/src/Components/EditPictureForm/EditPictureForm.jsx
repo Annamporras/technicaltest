@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import picturesService from "../../Services/pictures.service"
 import uploadService from "../../Services/upload.service"
 import { Container, Form, Button } from 'react-bootstrap'
+import { MessageContext } from "../../context/userMessage.context"
 
 const EditPictureForm = () => {
 
     const [pictureDetails, setPictureDetails] = useState({})
     const { id } = useParams()
     const { title, image, description } = pictureDetails
+
+    const { setShowMessage, setMessageInfo } = useContext(MessageContext)
 
     useEffect(() => {
         picturesService
@@ -54,6 +57,8 @@ const EditPictureForm = () => {
         picturesService
             .editPicture(id, pictureDetails)
             .then(({ data }) => {
+                setShowMessage(true)
+                setMessageInfo({ title: 'Perfecto!', desc: 'Has modificado la imagen' })
                 navigate(`/detalles/${id}`)
             })
             .catch(err => console.log(err))

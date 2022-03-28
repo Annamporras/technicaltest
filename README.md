@@ -14,7 +14,7 @@ When you add, edit or delete some picture you will see a toast with a success me
 
 ## Setup:
 - Clone this repo.
-- Run `$npm install` to install the node modules.
+- Run `$npm install` to install the node modules on main folder `technicaltest`
 - Create an `.env` document in Server and add the information below -> 
     - PORT=5005
     - ORIGIN=http://localhost:3000
@@ -24,14 +24,19 @@ When you add, edit or delete some picture you will see a toast with a success me
     - CLOUDINARY_SECRET=yourCloudinarySecret
 - Create an `.env`document in Client and add the information below -> 
     - REACT_APP_API_URL=http://localhost:5005/api
-- Import the `pictures.json` to your database. That's in public folder on Client.
+- Import the `pictures.json` to your database. That's in public folder on Client. There are the used pictures too.
+
+## App Run:
+
+- Run `$cd server` and put the comand `$npm run dev` to connect the server.
+- Run `$cd client`and put the comand `$npm start` to open the app on the browser, in a separate CLI window.
 
     
 
 ## Technologies used:
 SERVER: I've used Express/Node for the server part, from where I created the picture model.
-As for the management of images of the entire application are managed through CLOUDINARY which greatly facilitates access and support for them.
-Regarding Database we have used MongoDB and Mongoose for DB management and transfer to the cloud with MongoDB Atlas.
+As for the management of images of the entire application is managed through CLOUDINARY which greatly facilitates access and support for them.
+Regarding Database I've used MongoDB and Mongoose for DB management and transfer to the cloud with MongoDB Atlas.
 
 CLIENT: On the client side I've used REACT as a library, shelling out the components of the App to obtain a dynamic and attractive Single Page Application, likewise I've used Hooks and Context API.
 The creative part is made with Bootstrap and CSS.
